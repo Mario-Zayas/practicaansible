@@ -1,0 +1,19 @@
+# nginx
+virtualhosts:
+  - name: pagina1
+    datos: 
+      nameserver: pagina1.org
+      documentroot: /srv/www/pagina1
+      errorlog: pagina1_error
+      accesslog: pagina1_access
+ 
+  - name: pagina2
+    datos:
+      nameserver: pagina2.org
+      documentroot: /srv/www/pagina2
+      errorlog: pagina2_error
+      accesslog: pagina2_access
+mods_enabled:
+  - rewrite
+del_virtualhost:
+  - name: pagina2

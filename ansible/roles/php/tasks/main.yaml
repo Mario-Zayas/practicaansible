@@ -1,0 +1,17 @@
+- name: Install php
+  apt:
+    pkg: php8.2
+
+- name: Install php-fpm
+  apt:
+    pkg: php8.2-fpm
+
+- name: Create info.php
+  copy:
+    src: info.php
+    dest: /{{ item["datos"]["documentroot"] }}/
+    owner: www-data
+    group: www-data
+    mode: 0644
+  with_items:
+    - "{{ virtualhosts }}"
